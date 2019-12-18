@@ -1,10 +1,10 @@
-import {ErrorCodes} from '../constants';
+import { ErrorCodes } from '../constants';
 import GenericError from './generic-error';
 
-export default class ValidationError extends GenericError{
+export default class ValidationError extends GenericError {
     model;
-    constructor(message,model) {
-        super(message,ErrorCodes.BAD_REQUEST);
-        this.model = model;
+    constructor (message, model) {
+      super(message, ErrorCodes.BAD_REQUEST);
+      this.model = model;
     }
 };

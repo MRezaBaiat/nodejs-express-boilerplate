@@ -1,4 +1,4 @@
-const{buildSchema} = require('graphql');
+const { buildSchema } = require('graphql');
 
 export const schema = buildSchema(`
     
@@ -37,30 +37,29 @@ export const schema = buildSchema(`
     }
 `);
 
-
 export const resolver = {
-    userId(){
-        return Math.random().toString()
-    },
-    name(){
-        return 'Reza';
-    },
-    family(){
-        return 'Baiat'
-    },
-    phone(){
-        return '09305211601';
-    },
-    email(){
-        return 'Untouchable.rb@gmail.com'
-    },
-    signup({userInput},req){
-        return{
-            userId:Math.random().toString(),
-            name:userInput.name,
-            family:userInput.family,
-            phone:userInput.phone,
-            email:userInput.email,
-        }
-    }
-}
+  userId () {
+    return Math.random().toString();
+  },
+  name () {
+    return 'Reza';
+  },
+  family () {
+    return 'Baiat';
+  },
+  phone () {
+    return '09305211601';
+  },
+  email () {
+    return 'Untouchable.rb@gmail.com';
+  },
+  signup ({ userInput }, req) {
+    return {
+      userId: Math.random().toString(),
+      name: userInput.name,
+      family: userInput.family,
+      phone: userInput.phone,
+      email: userInput.email
+    };
+  }
+};

@@ -15,6 +15,7 @@
     "@authentication/cookie-session": "^0.0.3",
     "@authentication/secure-hash": "^1.0.0",
     "@babel/runtime": "^7.7.6",
+    "babel-eslint": "^10.0.3",
     "bcrypt": "^3.0.7",
     "chalk": "^3.0.0",
     "cookie-parser": "~1.4.4",
@@ -46,6 +47,11 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-flow": "^7.7.4",
     "@babel/register": "^7.7.4",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-flow": "^1.0.1",
+    "eslint-plugin-flowtype": "^4.5.2",
+    "eslint-plugin-node": "^10.0.0",
     "sequelize-cli": "^5.5.1"
   }
 }
