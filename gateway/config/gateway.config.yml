@@ -1,0 +1,35 @@
+http:
+  port: 8080
+apiEndpoints:
+  users-service:
+    host: "*"
+    paths: ["/api/users/*","/api/users","/","/api/posts","/api/posts/*"]
+  # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/apiEndpoints
+serviceEndpoints:
+  users-service-endpoint:
+    url: http://localhost:6050/
+  # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/serviceEndpoints
+policies:
+  - proxy
+  - rate-limit
+pipelines:
+  users-service-pipeline:
+    apiEndpoints:
+      - users-service
+    policies:
+      - rate-limit: #https://www.express-gateway.io/docs/policies/rate-limiter/
+              -
+                action:                               # allow
+                  max: 10                             # max 10 request
+                  windowMs: 60000                     # per 60 seconds
+                  rateLimitBy: "${req.hostname}"
+                  message: Too many requests, Please try again later
+                  statusCode: 429
+                  delayAfter: 0
+                  delayMs: 0
+      - proxy:
+          action:
+            serviceEndpoint: users-service-endpoint
+            changeOrigin: true # localhost:6050 -> localhost:8080
+            stripPath: false # localhost:8080/api/plans -> localhost:6050(/api/plans -> removed)
+  # see: https://www.express-gateway.io/docs/configuration/gateway.config.yml/pipelines

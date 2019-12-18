@@ -1,0 +1,51 @@
+{
+  "name": "nodejs-express-boilerplate",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "restart": "yarn kill && yarn start",
+    "start-services": "pm2 start --interpreter babel-node ./ecosystem.config.js -i max",
+    "kill": "pm2 kill",
+    "start": "yarn start-services && node ./gateway/server",
+    "log-all": "pm2 log all",
+    "stress-test": "artillery run ./stress.yml",
+    "run-class": "nodemon --exec babel-node"
+  },
+  "dependencies": {
+    "@authentication/cookie-session": "^0.0.3",
+    "@authentication/secure-hash": "^1.0.0",
+    "@babel/runtime": "^7.7.6",
+    "bcrypt": "^3.0.7",
+    "chalk": "^3.0.0",
+    "cookie-parser": "~1.4.4",
+    "csurf": "^1.10.0",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "helmet": "^3.21.2",
+    "joi": "^14.3.1",
+    "joi-phone-number": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.0",
+    "redis": "^2.8.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@authentication/csrf-protection": "0.0.3",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-flow": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "sequelize-cli": "^5.5.1"
+  }
+}
