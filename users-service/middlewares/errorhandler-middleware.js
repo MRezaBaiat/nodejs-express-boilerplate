@@ -9,8 +9,6 @@ function errorLogger () {
 
 function errorsHandler () {
   return (err, req, res, next) => {
-    console.log('handling error');
-    console.log(err);
     if (err.statusCode) {
       return res.sendStatus(err.statusCode);
     }

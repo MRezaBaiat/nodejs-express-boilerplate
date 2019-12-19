@@ -3,7 +3,7 @@ http:
 apiEndpoints:
   users-service:
     host: "*"
-    paths: ["/api/users/*","/api/users","/","/api/posts","/api/posts/*"]
+    paths: ["/api/users/*","/api/users","/","/*","/api/posts","/api/posts/*"]
   # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/apiEndpoints
 serviceEndpoints:
   users-service-endpoint:

@@ -4,9 +4,10 @@ import DBModel from '../../models/posts/DBModel';
 const PostsDB = sequelize.define('posts', DBModel);
 
 // Note: using `force: true` will drop the table if it already exists
-PostsDB.sync({ force: false }).then(() => {
-  // Now the `users` table in the database corresponds to the model definition
-});
+
+export const initialize = () => {
+  return PostsDB.sync({ force: false });
+};
 
 const create = async (post: DBModel) => {
   return PostsDB.create(post);

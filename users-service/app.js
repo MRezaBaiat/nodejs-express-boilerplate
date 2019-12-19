@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // only signup and index page do not require csrf protection
-app.use('/api/users', indexRouter);
+app.use('/', indexRouter);
 
 app.use(csurfMiddleware);
 if (process.env.NODE_ENV === 'production') {

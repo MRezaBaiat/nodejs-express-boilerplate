@@ -10,5 +10,3 @@ require('@babel/register')({
     '@babel/plugin-proposal-class-properties'
   ]
 });
-
-require('./www');
